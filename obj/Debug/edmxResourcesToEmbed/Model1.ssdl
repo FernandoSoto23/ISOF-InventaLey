@@ -1,0 +1,488 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InventaLeyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Articulos">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" />
+    <Property Name="Depa" Type="int" Nullable="false" />
+    <Property Name="SubDepa" Type="int" Nullable="false" />
+    <Property Name="Sku" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Precio" Type="decimal" Precision="12" Scale="2" />
+    <Property Name="Costo" Type="decimal" Precision="12" Scale="2" />
+    <Property Name="TasaIva" Type="int" />
+    <Property Name="TasaIeps" Type="int" />
+    <Property Name="Activo" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Clientes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" />
+    <Property Name="Domicilio" Type="varchar" MaxLength="100" />
+    <Property Name="Ciudad" Type="varchar" MaxLength="50" />
+    <Property Name="Rfc" Type="varchar" MaxLength="13" />
+    <Property Name="Telefono" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Depas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gerente" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="ED">
+    <Key>
+      <PropertyRef Name="Tipo" />
+      <PropertyRef Name="Folio" />
+      <PropertyRef Name="Renglon" />
+    </Key>
+    <Property Name="Tipo" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="Folio" Type="int" Nullable="false" />
+    <Property Name="Renglon" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" />
+    <Property Name="Fecha2" Type="varchar" MaxLength="8" StoreGeneratedPattern="Computed" />
+    <Property Name="Proveedor" Type="int" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Cantidad" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Costo" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="TasaIva" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="TasaIeps" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Iva" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Ieps" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Total" Type="numeric" Precision="25" Scale="4" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'InventaLey.dbo.empresa' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="empresa">
+          <Property Name="nombre" Type="varchar" MaxLength="100" />
+          <Property Name="domicilio" Type="varchar" MaxLength="100" />
+          <Property Name="ciudad" Type="varchar" MaxLength="50" />
+          <Property Name="rfc" Type="varchar" MaxLength="13" />
+          <Property Name="telefono" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+  <EntityType Name="Entradas">
+    <Key>
+      <PropertyRef Name="Tipo" />
+      <PropertyRef Name="Folio" />
+    </Key>
+    <Property Name="Tipo" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="Folio" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" />
+    <Property Name="Fecha2" Type="varchar" MaxLength="8" StoreGeneratedPattern="Computed" />
+    <Property Name="Proveedor" Type="int" Nullable="false" />
+    <Property Name="SubTotal" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Iva" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Ieps" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Total" Type="numeric" Precision="12" Scale="2" />
+  </EntityType>
+  <EntityType Name="EntradasDetalle">
+    <Key>
+      <PropertyRef Name="Tipo" />
+      <PropertyRef Name="Folio" />
+      <PropertyRef Name="Renglon" />
+    </Key>
+    <Property Name="Tipo" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="Folio" Type="int" Nullable="false" />
+    <Property Name="Renglon" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" />
+    <Property Name="Fecha2" Type="varchar" MaxLength="8" StoreGeneratedPattern="Computed" />
+    <Property Name="Proveedor" Type="int" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Cantidad" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Costo" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="TasaIva" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="TasaIeps" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Iva" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Ieps" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Total" Type="numeric" Precision="25" Scale="4" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Proveedores">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" />
+    <Property Name="Domicilio" Type="varchar" MaxLength="100" />
+    <Property Name="Ciudad" Type="varchar" MaxLength="50" />
+    <Property Name="Rfc" Type="varchar" MaxLength="13" />
+    <Property Name="Telefono" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Saldos">
+    <Key>
+      <PropertyRef Name="Codigo" />
+      <PropertyRef Name="Mes" />
+    </Key>
+    <Property Name="Codigo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Mes" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="EntradasC" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="EntradasV" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="SalidasC" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="SalidasV" Type="numeric" Precision="12" Scale="2" />
+  </EntityType>
+  <EntityType Name="Salidas">
+    <Key>
+      <PropertyRef Name="Tipo" />
+      <PropertyRef Name="Folio" />
+    </Key>
+    <Property Name="Tipo" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="Folio" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" />
+    <Property Name="Fecha2" Type="varchar" MaxLength="8" StoreGeneratedPattern="Computed" />
+    <Property Name="Cliente" Type="int" Nullable="false" />
+    <Property Name="SubTotal" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Iva" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Ieps" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Total" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="SubTotalPrecio" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="IvaPrecio" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="IepsPrecio" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="TotalPrecio" Type="numeric" Precision="12" Scale="2" />
+  </EntityType>
+  <EntityType Name="SalidasDetalle">
+    <Key>
+      <PropertyRef Name="Tipo" />
+      <PropertyRef Name="Folio" />
+      <PropertyRef Name="Renglon" />
+    </Key>
+    <Property Name="Tipo" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="Folio" Type="int" Nullable="false" />
+    <Property Name="Renglon" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" />
+    <Property Name="Fecha2" Type="varchar" MaxLength="8" StoreGeneratedPattern="Computed" />
+    <Property Name="cliente" Type="int" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Cantidad" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Costo" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="TasaIva" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="TasaIeps" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Iva" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Ieps" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Total" Type="numeric" Precision="25" Scale="4" StoreGeneratedPattern="Computed" />
+    <Property Name="SubTotalPrecio" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="IvaPrecio" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="IepsPrecio" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="TotalPrecio" Type="numeric" Precision="12" Scale="2" />
+  </EntityType>
+  <EntityType Name="SubDepas">
+    <Key>
+      <PropertyRef Name="Depa" />
+      <PropertyRef Name="SubDepa" />
+    </Key>
+    <Property Name="Depa" Type="int" Nullable="false" />
+    <Property Name="SubDepa" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TiposDeMovimientos">
+    <Key>
+      <PropertyRef Name="Tipo" />
+    </Key>
+    <Property Name="Tipo" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="Es" Type="char" MaxLength="1" />
+    <Property Name="Venta" Type="char" MaxLength="1" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'InventaLey.dbo.Usuarios' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="FechaReg" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="150" />
+    <Property Name="nombre" Type="varchar" MaxLength="150" />
+    <Property Name="user" Type="varchar" MaxLength="150" />
+    <Property Name="pwd" Type="varchar" MaxLength="150" />
+    <Property Name="activo" Type="char" MaxLength="1" />
+    <Property Name="FechaReg" Type="datetime" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="FechaReg2" Type="varchar" MaxLength="8" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <Association Name="FK__Articulos__2E1BDC42">
+    <End Role="SubDepas" Type="Self.SubDepas" Multiplicity="1" />
+    <End Role="Articulos" Type="Self.Articulos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubDepas">
+        <PropertyRef Name="Depa" />
+        <PropertyRef Name="SubDepa" />
+      </Principal>
+      <Dependent Role="Articulos">
+        <PropertyRef Name="Depa" />
+        <PropertyRef Name="SubDepa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ED__Codigo__72C60C4A">
+    <End Role="Articulos" Type="Self.Articulos" Multiplicity="1" />
+    <End Role="ED" Type="Self.ED" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articulos">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="ED">
+        <PropertyRef Name="Codigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ED__Proveedor__71D1E811">
+    <End Role="Proveedores" Type="Self.Proveedores" Multiplicity="1" />
+    <End Role="ED" Type="Self.ED" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedores">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ED">
+        <PropertyRef Name="Proveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ED__Tipo__70DDC3D8">
+    <End Role="TiposDeMovimientos" Type="Self.TiposDeMovimientos" Multiplicity="1" />
+    <End Role="ED" Type="Self.ED" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiposDeMovimientos">
+        <PropertyRef Name="Tipo" />
+      </Principal>
+      <Dependent Role="ED">
+        <PropertyRef Name="Tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Entradas__Provee__37A5467C">
+    <End Role="Proveedores" Type="Self.Proveedores" Multiplicity="1" />
+    <End Role="Entradas" Type="Self.Entradas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedores">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Entradas">
+        <PropertyRef Name="Proveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Entradas__Tipo__36B12243">
+    <End Role="TiposDeMovimientos" Type="Self.TiposDeMovimientos" Multiplicity="1" />
+    <End Role="Entradas" Type="Self.Entradas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiposDeMovimientos">
+        <PropertyRef Name="Tipo" />
+      </Principal>
+      <Dependent Role="Entradas">
+        <PropertyRef Name="Tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EntradasD__Codig__3C69FB99">
+    <End Role="Articulos" Type="Self.Articulos" Multiplicity="1" />
+    <End Role="EntradasDetalle" Type="Self.EntradasDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articulos">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="EntradasDetalle">
+        <PropertyRef Name="Codigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EntradasD__Prove__3B75D760">
+    <End Role="Proveedores" Type="Self.Proveedores" Multiplicity="1" />
+    <End Role="EntradasDetalle" Type="Self.EntradasDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedores">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EntradasDetalle">
+        <PropertyRef Name="Proveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EntradasDe__Tipo__3A81B327">
+    <End Role="TiposDeMovimientos" Type="Self.TiposDeMovimientos" Multiplicity="1" />
+    <End Role="EntradasDetalle" Type="Self.EntradasDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiposDeMovimientos">
+        <PropertyRef Name="Tipo" />
+      </Principal>
+      <Dependent Role="EntradasDetalle">
+        <PropertyRef Name="Tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Saldos__Codigo__44FF419A">
+    <End Role="Articulos" Type="Self.Articulos" Multiplicity="1" />
+    <End Role="Saldos" Type="Self.Saldos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articulos">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="Saldos">
+        <PropertyRef Name="Codigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Salidas__Cliente__2610A626">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+    <End Role="Salidas" Type="Self.Salidas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Salidas">
+        <PropertyRef Name="Cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Salidas__Tipo__251C81ED">
+    <End Role="TiposDeMovimientos" Type="Self.TiposDeMovimientos" Multiplicity="1" />
+    <End Role="Salidas" Type="Self.Salidas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiposDeMovimientos">
+        <PropertyRef Name="Tipo" />
+      </Principal>
+      <Dependent Role="Salidas">
+        <PropertyRef Name="Tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SalidasDe__clien__2AD55B43">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+    <End Role="SalidasDetalle" Type="Self.SalidasDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SalidasDetalle">
+        <PropertyRef Name="cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SalidasDe__Codig__2BC97F7C">
+    <End Role="Articulos" Type="Self.Articulos" Multiplicity="1" />
+    <End Role="SalidasDetalle" Type="Self.SalidasDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articulos">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="SalidasDetalle">
+        <PropertyRef Name="Codigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SalidasDet__Tipo__29E1370A">
+    <End Role="TiposDeMovimientos" Type="Self.TiposDeMovimientos" Multiplicity="1" />
+    <End Role="SalidasDetalle" Type="Self.SalidasDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiposDeMovimientos">
+        <PropertyRef Name="Tipo" />
+      </Principal>
+      <Dependent Role="SalidasDetalle">
+        <PropertyRef Name="Tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SubDepas__Depa__267ABA7A">
+    <End Role="Depas" Type="Self.Depas" Multiplicity="1" />
+    <End Role="SubDepas" Type="Self.SubDepas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Depas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubDepas">
+        <PropertyRef Name="Depa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="InventaLeyModelStoreContainer">
+    <EntitySet Name="Articulos" EntityType="Self.Articulos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Depas" EntityType="Self.Depas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ED" EntityType="Self.ED" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Entradas" EntityType="Self.Entradas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EntradasDetalle" EntityType="Self.EntradasDetalle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proveedores" EntityType="Self.Proveedores" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Saldos" EntityType="Self.Saldos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Salidas" EntityType="Self.Salidas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalidasDetalle" EntityType="Self.SalidasDetalle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubDepas" EntityType="Self.SubDepas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TiposDeMovimientos" EntityType="Self.TiposDeMovimientos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Usuarios].[id] AS [id], 
+    [Usuarios].[email] AS [email], 
+    [Usuarios].[nombre] AS [nombre], 
+    [Usuarios].[user] AS [user], 
+    [Usuarios].[pwd] AS [pwd], 
+    [Usuarios].[activo] AS [activo], 
+    [Usuarios].[FechaReg] AS [FechaReg], 
+    [Usuarios].[FechaReg2] AS [FechaReg2]
+    FROM [dbo].[Usuarios] AS [Usuarios]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Articulos__2E1BDC42" Association="Self.FK__Articulos__2E1BDC42">
+      <End Role="SubDepas" EntitySet="SubDepas" />
+      <End Role="Articulos" EntitySet="Articulos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ED__Codigo__72C60C4A" Association="Self.FK__ED__Codigo__72C60C4A">
+      <End Role="Articulos" EntitySet="Articulos" />
+      <End Role="ED" EntitySet="ED" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ED__Proveedor__71D1E811" Association="Self.FK__ED__Proveedor__71D1E811">
+      <End Role="Proveedores" EntitySet="Proveedores" />
+      <End Role="ED" EntitySet="ED" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ED__Tipo__70DDC3D8" Association="Self.FK__ED__Tipo__70DDC3D8">
+      <End Role="TiposDeMovimientos" EntitySet="TiposDeMovimientos" />
+      <End Role="ED" EntitySet="ED" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Entradas__Provee__37A5467C" Association="Self.FK__Entradas__Provee__37A5467C">
+      <End Role="Proveedores" EntitySet="Proveedores" />
+      <End Role="Entradas" EntitySet="Entradas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Entradas__Tipo__36B12243" Association="Self.FK__Entradas__Tipo__36B12243">
+      <End Role="TiposDeMovimientos" EntitySet="TiposDeMovimientos" />
+      <End Role="Entradas" EntitySet="Entradas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EntradasD__Codig__3C69FB99" Association="Self.FK__EntradasD__Codig__3C69FB99">
+      <End Role="Articulos" EntitySet="Articulos" />
+      <End Role="EntradasDetalle" EntitySet="EntradasDetalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EntradasD__Prove__3B75D760" Association="Self.FK__EntradasD__Prove__3B75D760">
+      <End Role="Proveedores" EntitySet="Proveedores" />
+      <End Role="EntradasDetalle" EntitySet="EntradasDetalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EntradasDe__Tipo__3A81B327" Association="Self.FK__EntradasDe__Tipo__3A81B327">
+      <End Role="TiposDeMovimientos" EntitySet="TiposDeMovimientos" />
+      <End Role="EntradasDetalle" EntitySet="EntradasDetalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Saldos__Codigo__44FF419A" Association="Self.FK__Saldos__Codigo__44FF419A">
+      <End Role="Articulos" EntitySet="Articulos" />
+      <End Role="Saldos" EntitySet="Saldos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Salidas__Cliente__2610A626" Association="Self.FK__Salidas__Cliente__2610A626">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Salidas" EntitySet="Salidas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Salidas__Tipo__251C81ED" Association="Self.FK__Salidas__Tipo__251C81ED">
+      <End Role="TiposDeMovimientos" EntitySet="TiposDeMovimientos" />
+      <End Role="Salidas" EntitySet="Salidas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SalidasDe__clien__2AD55B43" Association="Self.FK__SalidasDe__clien__2AD55B43">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="SalidasDetalle" EntitySet="SalidasDetalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SalidasDe__Codig__2BC97F7C" Association="Self.FK__SalidasDe__Codig__2BC97F7C">
+      <End Role="Articulos" EntitySet="Articulos" />
+      <End Role="SalidasDetalle" EntitySet="SalidasDetalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SalidasDet__Tipo__29E1370A" Association="Self.FK__SalidasDet__Tipo__29E1370A">
+      <End Role="TiposDeMovimientos" EntitySet="TiposDeMovimientos" />
+      <End Role="SalidasDetalle" EntitySet="SalidasDetalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SubDepas__Depa__267ABA7A" Association="Self.FK__SubDepas__Depa__267ABA7A">
+      <End Role="Depas" EntitySet="Depas" />
+      <End Role="SubDepas" EntitySet="SubDepas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

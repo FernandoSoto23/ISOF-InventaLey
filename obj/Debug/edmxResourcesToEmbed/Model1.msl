@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="InventaLeyModelStoreContainer" CdmEntityContainer="InventaLeyEntities">
+    <EntitySetMapping Name="Articulos">
+      <EntityTypeMapping TypeName="InventaLeyModel.Articulos">
+        <MappingFragment StoreEntitySet="Articulos">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Depa" ColumnName="Depa" />
+          <ScalarProperty Name="SubDepa" ColumnName="SubDepa" />
+          <ScalarProperty Name="Sku" ColumnName="Sku" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Costo" ColumnName="Costo" />
+          <ScalarProperty Name="TasaIva" ColumnName="TasaIva" />
+          <ScalarProperty Name="TasaIeps" ColumnName="TasaIeps" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="InventaLeyModel.Clientes">
+        <MappingFragment StoreEntitySet="Clientes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Domicilio" ColumnName="Domicilio" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Rfc" ColumnName="Rfc" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Depas">
+      <EntityTypeMapping TypeName="InventaLeyModel.Depas">
+        <MappingFragment StoreEntitySet="Depas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Gerente" ColumnName="Gerente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ED">
+      <EntityTypeMapping TypeName="InventaLeyModel.ED">
+        <MappingFragment StoreEntitySet="ED">
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Folio" ColumnName="Folio" />
+          <ScalarProperty Name="Renglon" ColumnName="Renglon" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Fecha2" ColumnName="Fecha2" />
+          <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Costo" ColumnName="Costo" />
+          <ScalarProperty Name="TasaIva" ColumnName="TasaIva" />
+          <ScalarProperty Name="TasaIeps" ColumnName="TasaIeps" />
+          <ScalarProperty Name="Iva" ColumnName="Iva" />
+          <ScalarProperty Name="Ieps" ColumnName="Ieps" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entradas">
+      <EntityTypeMapping TypeName="InventaLeyModel.Entradas">
+        <MappingFragment StoreEntitySet="Entradas">
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Folio" ColumnName="Folio" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Fecha2" ColumnName="Fecha2" />
+          <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="Iva" ColumnName="Iva" />
+          <ScalarProperty Name="Ieps" ColumnName="Ieps" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EntradasDetalle">
+      <EntityTypeMapping TypeName="InventaLeyModel.EntradasDetalle">
+        <MappingFragment StoreEntitySet="EntradasDetalle">
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Folio" ColumnName="Folio" />
+          <ScalarProperty Name="Renglon" ColumnName="Renglon" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Fecha2" ColumnName="Fecha2" />
+          <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Costo" ColumnName="Costo" />
+          <ScalarProperty Name="TasaIva" ColumnName="TasaIva" />
+          <ScalarProperty Name="TasaIeps" ColumnName="TasaIeps" />
+          <ScalarProperty Name="Iva" ColumnName="Iva" />
+          <ScalarProperty Name="Ieps" ColumnName="Ieps" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proveedores">
+      <EntityTypeMapping TypeName="InventaLeyModel.Proveedores">
+        <MappingFragment StoreEntitySet="Proveedores">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Domicilio" ColumnName="Domicilio" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Rfc" ColumnName="Rfc" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Saldos">
+      <EntityTypeMapping TypeName="InventaLeyModel.Saldos">
+        <MappingFragment StoreEntitySet="Saldos">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
+          <ScalarProperty Name="EntradasC" ColumnName="EntradasC" />
+          <ScalarProperty Name="EntradasV" ColumnName="EntradasV" />
+          <ScalarProperty Name="SalidasC" ColumnName="SalidasC" />
+          <ScalarProperty Name="SalidasV" ColumnName="SalidasV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Salidas">
+      <EntityTypeMapping TypeName="InventaLeyModel.Salidas">
+        <MappingFragment StoreEntitySet="Salidas">
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Folio" ColumnName="Folio" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Fecha2" ColumnName="Fecha2" />
+          <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="Iva" ColumnName="Iva" />
+          <ScalarProperty Name="Ieps" ColumnName="Ieps" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="SubTotalPrecio" ColumnName="SubTotalPrecio" />
+          <ScalarProperty Name="IvaPrecio" ColumnName="IvaPrecio" />
+          <ScalarProperty Name="IepsPrecio" ColumnName="IepsPrecio" />
+          <ScalarProperty Name="TotalPrecio" ColumnName="TotalPrecio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalidasDetalle">
+      <EntityTypeMapping TypeName="InventaLeyModel.SalidasDetalle">
+        <MappingFragment StoreEntitySet="SalidasDetalle">
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Folio" ColumnName="Folio" />
+          <ScalarProperty Name="Renglon" ColumnName="Renglon" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Fecha2" ColumnName="Fecha2" />
+          <ScalarProperty Name="cliente" ColumnName="cliente" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Costo" ColumnName="Costo" />
+          <ScalarProperty Name="TasaIva" ColumnName="TasaIva" />
+          <ScalarProperty Name="TasaIeps" ColumnName="TasaIeps" />
+          <ScalarProperty Name="Iva" ColumnName="Iva" />
+          <ScalarProperty Name="Ieps" ColumnName="Ieps" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="SubTotalPrecio" ColumnName="SubTotalPrecio" />
+          <ScalarProperty Name="IvaPrecio" ColumnName="IvaPrecio" />
+          <ScalarProperty Name="IepsPrecio" ColumnName="IepsPrecio" />
+          <ScalarProperty Name="TotalPrecio" ColumnName="TotalPrecio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubDepas">
+      <EntityTypeMapping TypeName="InventaLeyModel.SubDepas">
+        <MappingFragment StoreEntitySet="SubDepas">
+          <ScalarProperty Name="Depa" ColumnName="Depa" />
+          <ScalarProperty Name="SubDepa" ColumnName="SubDepa" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TiposDeMovimientos">
+      <EntityTypeMapping TypeName="InventaLeyModel.TiposDeMovimientos">
+        <MappingFragment StoreEntitySet="TiposDeMovimientos">
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Es" ColumnName="Es" />
+          <ScalarProperty Name="Venta" ColumnName="Venta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="InventaLeyModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="user" ColumnName="user" />
+          <ScalarProperty Name="pwd" ColumnName="pwd" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="FechaReg" ColumnName="FechaReg" />
+          <ScalarProperty Name="FechaReg2" ColumnName="FechaReg2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
