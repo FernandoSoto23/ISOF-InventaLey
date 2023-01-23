@@ -30,7 +30,8 @@ namespace ISOF_InventaLey
             miTabla = tabla;
             miOrdenar = ordenar;
             miRegresar = regresar;
-            this.ShowDialog();
+            //this.ShowDialog();
+            resultado = $"select * from {miTabla} order by {miOrdenar} where {miRegresar} = {miFiltro} ";
             return resultado;
         }
 
@@ -39,7 +40,8 @@ namespace ISOF_InventaLey
         {
             if (e.KeyValue == (char)Keys.Enter)
             {
-                string cadena;
+                Buscar("articulos","id","nombre");
+                MessageBox.Show(resultado);
             }
         }
     }

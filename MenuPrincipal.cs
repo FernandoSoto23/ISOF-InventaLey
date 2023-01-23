@@ -10,6 +10,7 @@ namespace ISOF_InventaLey
         public MenuPrincipal()
         {
             InitializeComponent();
+            panelBienvenida.Dock = DockStyle.Fill;
             
         }
 

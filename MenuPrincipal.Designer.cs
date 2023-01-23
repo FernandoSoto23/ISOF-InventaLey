@@ -55,8 +55,13 @@ namespace ISOF_InventaLey
             this.txtbContraseña = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtbUsuario = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelBienvenida = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pLogin.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panelBienvenida.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -353,7 +358,7 @@ namespace ISOF_InventaLey
             this.pLogin.Controls.Add(this.txtbContraseña);
             this.pLogin.Controls.Add(this.label1);
             this.pLogin.Controls.Add(this.txtbUsuario);
-            this.pLogin.Location = new System.Drawing.Point(272, 78);
+            this.pLogin.Location = new System.Drawing.Point(437, 90);
             this.pLogin.Name = "pLogin";
             this.pLogin.Size = new System.Drawing.Size(378, 200);
             this.pLogin.TabIndex = 1;
@@ -452,6 +457,35 @@ namespace ISOF_InventaLey
             this.txtbUsuario.Size = new System.Drawing.Size(197, 33);
             this.txtbUsuario.TabIndex = 0;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.panel2.Controls.Add(this.panelBienvenida);
+            this.panel2.Location = new System.Drawing.Point(27, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1377, 814);
+            this.panel2.TabIndex = 3;
+            // 
+            // panelBienvenida
+            // 
+            this.panelBienvenida.Controls.Add(this.label4);
+            this.panelBienvenida.Location = new System.Drawing.Point(200, 67);
+            this.panelBienvenida.Name = "panelBienvenida";
+            this.panelBienvenida.Size = new System.Drawing.Size(561, 322);
+            this.panelBienvenida.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(561, 322);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Bienvenido a Sistema de Inventario";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -459,6 +493,7 @@ namespace ISOF_InventaLey
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.pLogin);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MaximizeBox = false;
@@ -470,6 +505,8 @@ namespace ISOF_InventaLey
             this.panel1.ResumeLayout(false);
             this.pLogin.ResumeLayout(false);
             this.pLogin.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panelBienvenida.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -500,6 +537,9 @@ namespace ISOF_InventaLey
         private System.Windows.Forms.Button btn_Movimientos;
         private System.Windows.Forms.Button btn_Articulos;
         private System.Windows.Forms.Button btn_SubDepas;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelBienvenida;
+        private System.Windows.Forms.Label label4;
     }
 }
 
